@@ -2,9 +2,10 @@
   "buildCommand": "npm run build",
   "outputDirectory": "build",
   "framework": "create-react-app",
+  "nodejs": "18.x",
   "env": {
     "CI": "true"
-  },
-  "installCommand": "npm install --legacy-peer-deps"
+  }
 }
+
 
