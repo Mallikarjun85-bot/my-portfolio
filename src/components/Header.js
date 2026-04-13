@@ -20,7 +20,7 @@ const Header = () => {
     >
       <div className="header-container">
         <motion.div className="logo">
-          <a href="#top">Mallikarjun K B.</a>
+          <a href="#top">Mallikarjun K Bendawade.</a>
         </motion.div>
 
         <button
