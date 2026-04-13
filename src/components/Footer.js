@@ -18,7 +18,7 @@ const Footer = () => {
     >
       <div className="footer-content">
         <div className="footer-text">
-          <p>Building elegant solutions for complex problems.</p>
+          <p>Building intelligent AI solutions that scale.</p>
         </div>
 
         <div className="footer-links">

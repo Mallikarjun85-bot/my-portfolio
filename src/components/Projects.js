@@ -4,31 +4,31 @@ import { motion } from "framer-motion";
 const Projects = () => {
   const projects = [
     {
-      title: "Lip Reading AI",
+      title: "ChikitAI - Healthcare Platform",
       description:
-        "LipNet architecture for sentence-level lip reading using deep learning. Real-time video processing with TensorFlow.",
-      tags: ["Python", "TensorFlow", "OpenCV", "Deep Learning"],
+        "Developed and deployed backend systems for AI-powered healthcare platform. Built 7+ AI features including health assessment, report analysis, BMI tracking, and medication reminders. Scaled patient module to 2,000+ users by optimizing backend performance and supporting feature reliability.",
+      tags: ["FastAPI", "LangChain", "OpenAI", "Healthcare AI"],
       link: "#",
     },
     {
-      title: "AI Medical Diagnosis System",
+      title: "Tender Evaluation Agent",
       description:
-        "Intelligent system for medical diagnosis predictions with multi-language support and real-time analysis.",
-      tags: ["AI/ML", "Python", "React", "Healthcare"],
+        "Scoped and delivered custom enterprise AI solution for Government of Odisha. Automated tender document analysis and evaluation using LLMs and RAG systems.",
+      tags: ["LangChain", "RAG", "LLMs", "Enterprise AI"],
       link: "#",
     },
     {
-      title: "Full-Stack Web Application",
+      title: "Accounts Payable & Insurance Agents",
       description:
-        "Scalable web application with React frontend, Node.js backend, and MongoDB database with microservices architecture.",
-      tags: ["React", "Node.js", "MongoDB", "AWS"],
+        "Developed intelligent document processing systems. Built data extraction for structured documents and insurance policy extraction & validation pipeline with high accuracy.",
+      tags: ["NLP", "Document Processing", "Python", "RAG"],
       link: "#",
     },
     {
-      title: "Data Analysis Dashboard",
+      title: "Lip Reading AI (Deep Learning)",
       description:
-        "Interactive dashboard for real-time data visualization and analytics with advanced filtering and reporting.",
-      tags: ["React", "Python", "SQL", "Data Viz"],
+        "Developed sentence-level lipreading system using LipNet architecture. Implemented preprocessing pipelines and model training for video-to-speech prediction.",
+      tags: ["Python", "Deep Learning", "LipNet", "Computer Vision"],
       link: "#",
     },
   ];

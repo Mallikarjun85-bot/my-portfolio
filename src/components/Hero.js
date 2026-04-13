@@ -46,13 +46,11 @@ const Hero = () => {
           </motion.h1>
 
           <motion.h2 variants={itemVariants} className="hero-tagline">
-            Building intelligent solutions with AI & modern development.
+            AI-Driven Backend Engineer & Product Developer
           </motion.h2>
 
           <motion.p variants={itemVariants} className="hero-subtitle">
-            I'm a Software Developer & AI Enthusiast from Bengaluru, focused on
-            creating elegant solutions to complex problems. Specializing in AI,
-            Web Development, and scalable backend systems.
+            Results-driven Software Developer specializing in AI product development. I build intelligent systems from scratch, translating product requirements into scalable backend architectures and AI-powered features. Currently scaling ChikitAI to 2,000+ users and delivering enterprise AI solutions.
           </motion.p>
 
           <motion.div className="hero-cta" variants={itemVariants}>
