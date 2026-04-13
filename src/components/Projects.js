@@ -7,7 +7,7 @@ const Projects = () => {
       title: "ChikitAI - Healthcare Platform",
       description:
         "Developed and deployed backend systems for AI-powered healthcare platform. Built 7+ AI features including health assessment, report analysis, BMI tracking, and medication reminders. Scaled patient module to 2,000+ users by optimizing backend performance and supporting feature reliability.",
-      tags: ["FastAPI", "LangChain", "OpenAI", "Healthcare AI"],
+      tags: ["Flask", "LangChain", "OpenAI", "Healthcare AI"],
       link: "#",
     },
     {
