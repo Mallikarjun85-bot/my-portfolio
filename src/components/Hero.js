@@ -73,7 +73,7 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      <motion.div className="hero-scroll" variants={itemVariants}>
+      {/* <motion.div className="hero-scroll" variants={itemVariants}>
         <span>Scroll to explore</span>
         <motion.div
           className="scroll-indicator"
@@ -82,7 +82,7 @@ const Hero = () => {
         >
           ↓
         </motion.div>
-      </motion.div>
+      </motion.div> */}
     </motion.section>
   );
 };
