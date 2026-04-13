@@ -9,7 +9,7 @@ const Skills = () => {
     },
     {
       category: "Backend & APIs",
-      skills: ["FastAPI", "Flask", "REST APIs", "System Design", "Microservices"],
+      skills: ["FastAPI", "Flask", "REST APIs", "System Design"],
     },
     {
       category: "AI & Machine Learning",
