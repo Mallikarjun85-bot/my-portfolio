@@ -5,7 +5,7 @@ const Skills = () => {
   const skillsData = [
     {
       category: "Languages",
-      skills: ["Python", "JavaScript" , "Node.js"],
+      skills: ["Python", "JavaScript"],
     },
     {
       category: "Backend & APIs",
