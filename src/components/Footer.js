@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Footer = () => {
   const socialLinks = [
     { name: "LinkedIn", url: "https://www.linkedin.com/in/mallikarjun-bendawade-a37050225/" },
-    { name: "GitHub", url: "https://github.com/MallikarjunNyukt" },
+    { name: "GitHub", url: "https://github.com/Mallikarjun85-bot" },
     { name: "Email", url: "mailto:mallikarjunbendawade9972@gmail.com" },
   ];
 

@@ -25,8 +25,8 @@ const Contact = () => {
     },
     {
       label: "GitHub",
-      value: "github.com/MallikarjunNyukt",
-      url: "https://github.com/MallikarjunNyukt",
+      value: "github.com/Mallikarjun85-bot",
+      url: "https://github.com/Mallikarjun85-bot",
       icon: "gh",
     },
   ];
