@@ -61,7 +61,7 @@ const Projects = () => {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
     >
-      <motion.h2>Featured Projects.</motion.h2>
+      <motion.h2>Featured Projects</motion.h2>
 
       <motion.div className="projects-grid">
         {projects.map((project, index) => (
