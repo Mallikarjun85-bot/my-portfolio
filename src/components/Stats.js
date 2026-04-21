@@ -1,5 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+
+const AnimatedCounter = ({ value, delay = 0 }) => {
+  const [displayValue, setDisplayValue] = useState(0);
+
+  // Parse the value to extract the numeric part
+  const parseValue = (val) => {
+    if (val.includes("K")) {
+      return parseInt(val) * 1000;
+    }
+    return parseInt(val);
+  };
+
+  const targetValue = parseValue(value);
+  const suffix = value.replace(/[0-9]/g, ""); // Extract non-numeric characters like "+" or "K+"
+
+  useEffect(() => {
+    let isMounted = true;
+    const timer = setTimeout(() => {
+      let current = 0;
+      const increment = targetValue / 50;
+      const countInterval = setInterval(() => {
+        current += increment;
+        if (current >= targetValue) {
+          if (isMounted) setDisplayValue(targetValue);
+          clearInterval(countInterval);
+        } else {
+          if (isMounted) setDisplayValue(Math.floor(current));
+        }
+      }, 30);
+
+      return () => clearInterval(countInterval);
+    }, delay);
+
+    return () => {
+      isMounted = false;
+      clearTimeout(timer);
+    };
+  }, [targetValue, delay]);
+
+  return <>{displayValue}+</>;
+};
 
 const Stats = () => {
   const stats = [
@@ -64,7 +105,7 @@ const Stats = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             viewport={{ once: true, amount: 0.5 }}
           >
-            {stat.value}
+            <AnimatedCounter value={stat.value} delay={0.5 + index * 0.1} />
           </motion.div>
           <motion.div 
             className="stat-label"
