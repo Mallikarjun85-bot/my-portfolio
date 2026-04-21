@@ -14,17 +14,31 @@ const Stats = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30, scale: 0.9 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 },
+      scale: 1,
+      transition: { 
+        duration: 0.6, 
+        ease: [0.25, 0.46, 0.45, 0.94],
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+      },
+    },
+    hover: {
+      y: -8,
+      scale: 1.05,
+      boxShadow: "0 20px 60px rgba(56, 189, 248, 0.2)",
+      transition: { duration: 0.3 },
     },
   };
 
@@ -37,9 +51,30 @@ const Stats = () => {
       viewport={{ once: true, margin: "-100px" }}
     >
       {stats.map((stat, index) => (
-        <motion.div key={index} className="stat-item" variants={itemVariants}>
-          <div className="stat-value">{stat.value}</div>
-          <div className="stat-label">{stat.label}</div>
+        <motion.div 
+          key={index} 
+          className="stat-item" 
+          variants={itemVariants}
+          whileHover="hover"
+        >
+          <motion.div 
+            className="stat-value"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            {stat.value}
+          </motion.div>
+          <motion.div 
+            className="stat-label"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            {stat.label}
+          </motion.div>
         </motion.div>
       ))}
     </motion.div>

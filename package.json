@@ -7,9 +7,11 @@
     "ajv": "^8.18.0",
     "ajv-keywords": "^5.1.0",
     "framer-motion": "^12.38.0",
+    "lottie-react": "^2.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "react-use": "^17.6.0"
   },
   "scripts": {
     "start": "react-scripts start",

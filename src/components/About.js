@@ -7,7 +7,8 @@ const About = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
       },
     },
   };
@@ -17,7 +18,16 @@ const About = () => {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.8 },
+      transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+    },
+  };
+
+  const highlightVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
     },
   };
 
@@ -47,19 +57,31 @@ const About = () => {
           </p>
         </motion.div>
 
-        <motion.div className="about-highlights" variants={itemVariants}>
-          <div className="highlight-item">
+        <motion.div className="about-highlights">
+          <motion.div 
+            className="highlight-item"
+            variants={highlightVariants}
+            whileHover={{ x: 8, boxShadow: "0 12px 48px rgba(56, 189, 248, 0.15)" }}
+          >
             <h3>Specialization</h3>
             <p>Backend Architecture, AI/ML, Healthcare Tech</p>
-          </div>
-          <div className="highlight-item">
+          </motion.div>
+          <motion.div 
+            className="highlight-item"
+            variants={highlightVariants}
+            whileHover={{ x: 8, boxShadow: "0 12px 48px rgba(56, 189, 248, 0.15)" }}
+          >
             <h3>Based In</h3>
             <p>Bangalore, India</p>
-          </div>
-          <div className="highlight-item">
+          </motion.div>
+          <motion.div 
+            className="highlight-item"
+            variants={highlightVariants}
+            whileHover={{ x: 8, boxShadow: "0 12px 48px rgba(56, 189, 248, 0.15)" }}
+          >
             <h3>Currently At</h3>
             <p>Nyukt AI (July 2025 - Present)</p>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </motion.section>

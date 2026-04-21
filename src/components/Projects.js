@@ -38,18 +38,42 @@ const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.12,
+        delayChildren: 0.1,
       },
     },
   };
 
   const projectVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 },
+      scale: 1,
+      transition: { 
+        duration: 0.6, 
+        ease: [0.25, 0.46, 0.45, 0.94],
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+      },
     },
+    hover: {
+      y: -12,
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const tagVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: (i) => ({
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delay: i * 0.05,
+        duration: 0.3,
+      },
+    }),
   };
 
   return (
@@ -69,14 +93,15 @@ const Projects = () => {
             key={index}
             className="project-card"
             variants={projectVariants}
-            whileHover={{ y: -10 }}
+            whileHover="hover"
           >
             <div className="project-header">
               <h3>{project.title}</h3>
               <motion.a
                 href={project.link}
                 className="project-link"
-                whileHover={{ x: 5 }}
+                whileHover={{ scale: 1.15, rotate: 45 }}
+                whileTap={{ scale: 0.9 }}
               >
                 →
               </motion.a>
@@ -84,13 +109,25 @@ const Projects = () => {
 
             <p className="project-description">{project.description}</p>
 
-            <div className="project-tags">
+            <motion.div className="project-tags">
               {project.tags.map((tag, idx) => (
-                <span key={idx} className="tag">
+                <motion.span 
+                  key={idx} 
+                  className="tag"
+                  custom={idx}
+                  initial="hidden"
+                  whileInView="visible"
+                  whileHover={{ 
+                    scale: 1.1,
+                    backgroundColor: "rgba(56, 189, 248, 0.3)",
+                  }}
+                  variants={tagVariants}
+                  viewport={{ once: true, amount: 0.5 }}
+                >
                   {tag}
-                </span>
+                </motion.span>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         ))}
       </motion.div>

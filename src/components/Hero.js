@@ -1,33 +1,43 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useParallax } from "../hooks/useAnimations";
 
 const Hero = () => {
+  const { ref: parallaxRef, ySmooth } = useParallax(0.5);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
     },
   };
 
   const profileVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.8, rotate: -10 },
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.8, ease: "easeOut" },
+      rotate: 0,
+      transition: { 
+        duration: 1, 
+        ease: [0.25, 0.46, 0.45, 0.94],
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+      },
     },
   };
 
@@ -35,6 +45,7 @@ const Hero = () => {
     <motion.section
       className="hero"
       id="top"
+      ref={parallaxRef}
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -54,35 +65,50 @@ const Hero = () => {
           </motion.p>
 
           <motion.div className="hero-cta" variants={itemVariants}>
-            <motion.a href="#projects" className="btn btn-primary">
+            <motion.a 
+              href="#projects" 
+              className="btn btn-primary"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
               View My Work
             </motion.a>
-            <motion.a href="#contact" className="btn btn-secondary">
+            <motion.a 
+              href="#contact" 
+              className="btn btn-secondary"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
               Get in Touch
             </motion.a>
           </motion.div>
         </motion.div>
 
-        <motion.div className="hero-image" variants={profileVariants}>
+        <motion.div 
+          className="hero-image" 
+          variants={profileVariants}
+          style={{ y: ySmooth }}
+        >
           <motion.img
             src="/images/profile.jpg"
             alt="Mallikarjun Bendawade"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
+            whileHover={{ scale: 1.08, rotateY: 10 }}
+            transition={{ duration: 0.5 }}
+            className="float"
           />
         </motion.div>
       </motion.div>
 
-      {/* <motion.div className="hero-scroll" variants={itemVariants}>
-        <span>Scroll to explore</span>
+      <motion.div className="hero-scroll" variants={itemVariants}>
+        {/* <span>Scroll to explore</span> */}
         <motion.div
           className="scroll-indicator"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          ↓
+          {/* ↓ */}
         </motion.div>
-      </motion.div> */}
+      </motion.div>
     </motion.section>
   );
 };

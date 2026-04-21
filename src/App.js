@@ -1,5 +1,6 @@
 import React from "react";
 import { Analytics } from "@vercel/analytics/react";
+import CustomCursor from "./components/CustomCursor";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="app">
       <Analytics />
+      <CustomCursor />
       <Header />
       <Hero />
       <Stats />
