@@ -13,7 +13,6 @@ const AnimatedCounter = ({ value, delay = 0 }) => {
   };
 
   const targetValue = parseValue(value);
-  const suffix = value.replace(/[0-9]/g, ""); // Extract non-numeric characters like "+" or "K+"
 
   useEffect(() => {
     let isMounted = true;
