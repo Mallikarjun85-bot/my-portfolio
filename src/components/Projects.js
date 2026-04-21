@@ -31,6 +31,20 @@ const Projects = () => {
       tags: ["Python", "Deep Learning", "LipNet", "Computer Vision"],
       link: "#",
     },
+    {
+      title: "VetPharma AI Platform",
+      description:
+        "An AI-powered platform for veterinary sales, marketing, and livestock health management. Features an AI chatbot offering real-time insights on vaccinations, treatments, and products. Enables field representatives to track visits, locations, and manage doctor data. Built with React and Flask, it streamlines field data collection and delivers actionable analytics for the veterinary pharmaceutical industry.",
+      tags: ["React", "Flask", "AI Chatbot", "Healthcare", "Analytics"],
+      link: "#",
+    },
+    {
+      title: "Agriculture AI Agent (Agri Assistant)",
+      description:
+        "An AI-powered tool helping farmers with crop disease detection and agricultural guidance. Users can upload crop images for real-time disease identification using GPT-4o models. Provides personalized fertilizer suggestions and treatment solutions. Includes weather forecasting to support better farming decisions, enabling smarter, data-driven agriculture.",
+      tags: ["React", "GPT-4o", "Computer Vision", "AI", "Agriculture"],
+      link: "https://crop-detection-one.vercel.app",
+    },
   ];
 
   const containerVariants = {
