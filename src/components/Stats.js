@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 const AnimatedCounter = ({ value, delay = 0 }) => {
   const [displayValue, setDisplayValue] = useState(0);
+  const [isInView, setIsInView] = useState(false);
+  const ref = useRef(null);
 
   // Parse the value to extract the numeric part
   const parseValue = (val) => {
@@ -14,7 +16,33 @@ const AnimatedCounter = ({ value, delay = 0 }) => {
 
   const targetValue = parseValue(value);
 
+  // Intersection Observer to detect when element is in view
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsInView(true);
+          observer.unobserve(ref.current);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  // Start animation when in view
+  useEffect(() => {
+    if (!isInView) return;
+
     let isMounted = true;
     const timer = setTimeout(() => {
       let current = 0;
@@ -36,9 +64,9 @@ const AnimatedCounter = ({ value, delay = 0 }) => {
       isMounted = false;
       clearTimeout(timer);
     };
-  }, [targetValue, delay]);
+  }, [isInView, targetValue, delay]);
 
-  return <>{displayValue}+</>;
+  return <span ref={ref}>{displayValue}+</span>;
 };
 
 const Stats = () => {
