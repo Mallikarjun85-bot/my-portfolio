@@ -43,7 +43,7 @@ const Projects = () => {
       description:
         "An AI-powered tool helping farmers with crop disease detection and agricultural guidance. Users can upload crop images for real-time disease identification using GPT-4o models. Provides personalized fertilizer suggestions and treatment solutions. Includes weather forecasting to support better farming decisions, enabling smarter, data-driven agriculture.",
       tags: ["React", "GPT-4o", "Computer Vision", "AI", "Agriculture"],
-      link: "https://crop-detection-one.vercel.app",
+      link: "https://raitmitra.vercel.app",
     },
   ];
 
@@ -64,8 +64,8 @@ const Projects = () => {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { 
-        duration: 0.6, 
+      transition: {
+        duration: 0.6,
         ease: [0.25, 0.46, 0.45, 0.94],
         type: "spring",
         stiffness: 100,
@@ -125,13 +125,13 @@ const Projects = () => {
 
             <motion.div className="project-tags">
               {project.tags.map((tag, idx) => (
-                <motion.span 
-                  key={idx} 
+                <motion.span
+                  key={idx}
                   className="tag"
                   custom={idx}
                   initial="hidden"
                   whileInView="visible"
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.1,
                     backgroundColor: "rgba(56, 189, 248, 0.3)",
                   }}
