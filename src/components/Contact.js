@@ -19,8 +19,8 @@ const Contact = () => {
   const socialLinks = [
     {
       label: "LinkedIn",
-      value: "linkedin.com/in/mallikarjun-bendawade",
-      url: "https://www.linkedin.com/in/mallikarjun-bendawade-a37050225/",
+      value: "linkedin.com/in/mallikarjunbendawade",
+      url: "https://www.linkedin.com/in/mallikarjunbendawade",
       icon: "in",
     },
     {
