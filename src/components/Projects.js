@@ -13,7 +13,7 @@ const Projects = () => {
     {
       title: "Tender Evaluation Agent",
       description:
-        "Scoped and delivered custom enterprise AI solution for Government of Odisha. Automated tender document analysis and evaluation using LLMs and RAG systems.",
+        "Scoped and delivered custom enterprise AI solution. Automated tender document analysis and evaluation using LLMs and RAG systems.",
       tags: ["LangChain", "RAG", "LLMs", "Enterprise AI"],
       link: "#",
     },
