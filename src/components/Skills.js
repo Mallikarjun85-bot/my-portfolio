@@ -13,7 +13,7 @@ const Skills = () => {
     },
     {
       category: "AI & Machine Learning",
-      skills: ["OpenAI APIs", "LangChain", "RAG", "NLP"],
+      skills: ["LLMs", "OpenAI APIs", "LangChain", "Prompt Engineering", "RAG", "NLP", "Agentic AI", "GAN", "Generative AI", "OCR (Tesseract)", "TensorFlow"],
     },
     {
       category: "Frontend",
@@ -21,15 +21,15 @@ const Skills = () => {
     },
     {
       category: "Databases",
-      skills: ["MySQL", "MongoDB"],
+      skills: ["MongoDB", "SQL"],
     },
     {
       category: "Cloud",
-      skills: ["Google Cloud Platform (GCP)"],
+      skills: ["Google Cloud Platform (GCP)", "AWS"],
     },
     {
       category: "Tools",
-      skills: ["Git", "Docker", "Postman", "VS Code"],
+      skills: ["Git", "Docker", "Postman", "VS Code", "Stripe", "Razorpay"],
     },
   ];
 
