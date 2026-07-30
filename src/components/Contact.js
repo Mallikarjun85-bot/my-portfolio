@@ -1,5 +1,15 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import {
+  MapPin,
+  Phone,
+  Clock,
+  CircleDot,
+  Copy,
+  Check,
+  ArrowUpRight,
+} from "lucide-react";
+import { LinkedinIcon, GithubIcon } from "./BrandIcons";
 
 const Contact = () => {
   const [copied, setCopied] = useState(false);
@@ -21,13 +31,13 @@ const Contact = () => {
       label: "LinkedIn",
       value: "linkedin.com/in/mallikarjunbendawade",
       url: "https://www.linkedin.com/in/mallikarjunbendawade",
-      icon: "in",
+      icon: LinkedinIcon,
     },
     {
       label: "GitHub",
       value: "github.com/Mallikarjun85-bot",
       url: "https://github.com/Mallikarjun85-bot",
-      icon: "gh",
+      icon: GithubIcon,
     },
   ];
 
@@ -53,100 +63,146 @@ const Contact = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { 
-        duration: 0.6, 
+      transition: {
+        duration: 0.6,
         ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   };
 
+  const detailItems = [
+    { icon: MapPin, label: "Location", value: "Bengaluru, India" },
+    { icon: Phone, label: "Phone", value: "+91 8546964951", href: "tel:+918546964951" },
+    { icon: Clock, label: "Local Time", value: `${getIndianTime()} GMT+5:30` },
+  ];
+
   return (
     <motion.section
-      className="section contact"
+      className="px-4 sm:px-6 py-20 sm:py-28 lg:pl-[300px] lg:pr-10"
       id="contact"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
     >
-      <motion.div className="contact-wrapper" variants={containerVariants}>
-        {/* Left Side */}
-        <motion.div className="contact-left" variants={itemVariants}>
-          <h2>Ready to start something <span className="highlight">big?</span></h2>
+      <div className="mx-auto max-w-6xl">
+        <motion.div
+          className="glass-card grid grid-cols-1 gap-12 p-8 sm:p-12 lg:grid-cols-2 lg:gap-16 lg:p-16"
+          variants={containerVariants}
+        >
+          {/* Left Side */}
+          <motion.div className="flex flex-col" variants={itemVariants}>
+            <h2 className="mb-10 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.15] tracking-tight text-ink">
+              Ready to start something{" "}
+              <span className="text-accent">big?</span>
+            </h2>
 
-          <div className="contact-details">
-            <div className="detail-item">
-              <span className="detail-label">LOCATION</span>
-              <span className="detail-value">Bengaluru, India</span>
-            </div>
-
-            <div className="detail-item">
-              <span className="detail-label">LOCAL TIME</span>
-              <span className="detail-value">{getIndianTime()} GMT+5:30</span>
-            </div>
-
-            <div className="detail-item">
-              <span className="detail-label">STATUS</span>
-              <span className="detail-value available">● Available for projects</span>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Right Side */}
-        <motion.div className="contact-right" variants={containerVariants}>
-          {/* Email Section */}
-          <motion.div className="email-section" variants={itemVariants}>
-            <span className="section-label">EMAIL ADDRESS</span>
-            <div className="email-box">
-              <span>{email}</span>
-              <motion.button
-                className="copy-btn"
-                onClick={handleCopy}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                title="Copy email"
-              >
-                {copied ? "✓" : "📋"}
-              </motion.button>
-            </div>
-          </motion.div>
-
-          {/* Digital Presence */}
-          <motion.div className="digital-presence" variants={itemVariants}>
-            <span className="section-label">DIGITAL PRESENCE</span>
-            <div className="social-links">
-              {socialLinks.map((link, index) => (
-                <motion.a
-                  key={index}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-item"
-                  whileHover={{ x: 8, boxShadow: "0 12px 48px rgba(56, 189, 248, 0.15)" }}
-                  whileTap={{ scale: 0.98 }}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.4 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                >
-                  <span className="social-icon">{link.icon}</span>
-                  <div className="social-info">
-                    <span className="social-label">{link.label}</span>
-                    <span className="social-value">{link.value}</span>
-                  </div>
-                  <motion.span 
-                    className="arrow"
-                    animate={{ x: 0 }}
-                    transition={{ duration: 0.3 }}
+            <div className="flex flex-col gap-6">
+              {detailItems.map((item, index) => {
+                const Icon = item.icon;
+                const Wrapper = item.href ? "a" : "div";
+                return (
+                  <Wrapper
+                    key={index}
+                    {...(item.href ? { href: item.href } : {})}
+                    className="flex items-center gap-3"
                   >
-                    →
-                  </motion.span>
-                </motion.a>
-              ))}
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                      <Icon size={17} strokeWidth={2.2} />
+                    </span>
+                    <div className="flex flex-col">
+                      <span className="text-xs font-bold uppercase tracking-wider text-ink/40">
+                        {item.label}
+                      </span>
+                      <span className="text-sm font-medium text-ink">
+                        {item.value}
+                      </span>
+                    </div>
+                  </Wrapper>
+                );
+              })}
+
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                  <CircleDot size={17} strokeWidth={2.2} />
+                </span>
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold uppercase tracking-wider text-ink/40">
+                    Status
+                  </span>
+                  <span className="text-sm font-medium text-emerald-600">
+                    Available for projects
+                  </span>
+                </div>
+              </div>
             </div>
           </motion.div>
+
+          {/* Right Side */}
+          <motion.div className="flex flex-col gap-6" variants={containerVariants}>
+            {/* Email Section */}
+            <motion.div variants={itemVariants}>
+              <span className="mb-3 block text-xs font-bold uppercase tracking-wider text-ink/40">
+                Email Address
+              </span>
+              <div className="flex items-center justify-between gap-3 rounded-full border border-black/[0.08] bg-white/80 py-2 pl-5 pr-2 shadow-soft">
+                <span className="min-w-0 truncate text-sm sm:text-base font-medium text-ink">
+                  {email}
+                </span>
+                <motion.button
+                  className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-accent text-white"
+                  onClick={handleCopy}
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.92 }}
+                  title="Copy email"
+                >
+                  {copied ? <Check size={16} /> : <Copy size={16} />}
+                </motion.button>
+              </div>
+            </motion.div>
+
+            {/* Digital Presence */}
+            <motion.div variants={itemVariants}>
+              <span className="mb-3 block text-xs font-bold uppercase tracking-wider text-ink/40">
+                Digital Presence
+              </span>
+              <div className="flex flex-col gap-3">
+                {socialLinks.map((link, index) => {
+                  const Icon = link.icon;
+                  return (
+                    <motion.a
+                      key={index}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 rounded-2xl border border-black/[0.06] bg-white/70 p-4 shadow-soft transition-all duration-300"
+                      whileHover={{ x: 6, boxShadow: "0 12px 40px rgba(37,99,235,0.12)" }}
+                      whileTap={{ scale: 0.98 }}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1, duration: 0.4 }}
+                      viewport={{ once: true, amount: 0.5 }}
+                    >
+                      <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                        <Icon size={18} strokeWidth={2.2} />
+                      </span>
+                      <div className="min-w-0 flex flex-1 flex-col overflow-hidden">
+                        <span className="text-xs font-semibold uppercase tracking-wide text-ink/40">
+                          {link.label}
+                        </span>
+                        <span className="truncate text-sm font-medium text-ink">
+                          {link.value}
+                        </span>
+                      </div>
+                      <ArrowUpRight size={17} className="flex-shrink-0 text-accent/60" />
+                    </motion.a>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </motion.section>
   );
 };

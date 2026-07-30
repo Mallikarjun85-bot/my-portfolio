@@ -96,8 +96,8 @@ const Stats = () => {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { 
-        duration: 0.6, 
+      transition: {
+        duration: 0.6,
         ease: [0.25, 0.46, 0.45, 0.94],
         type: "spring",
         stiffness: 100,
@@ -106,29 +106,28 @@ const Stats = () => {
     },
     hover: {
       y: -8,
-      scale: 1.05,
-      boxShadow: "0 20px 60px rgba(56, 189, 248, 0.2)",
+      scale: 1.03,
       transition: { duration: 0.3 },
     },
   };
 
   return (
     <motion.div
-      className="stats-section"
+      className="mx-auto mt-8 grid max-w-6xl grid-cols-2 gap-4 px-4 sm:px-6 sm:gap-6 lg:grid-cols-4 lg:pl-[300px] lg:pr-10 lg:gap-6"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
     >
       {stats.map((stat, index) => (
-        <motion.div 
-          key={index} 
-          className="stat-item" 
+        <motion.div
+          key={index}
+          className="glass-card flex flex-col items-center gap-1.5 px-4 py-7 text-center transition-shadow duration-300 hover:shadow-card-hover"
           variants={itemVariants}
           whileHover="hover"
         >
-          <motion.div 
-            className="stat-value"
+          <motion.div
+            className="gradient-text text-3xl sm:text-4xl font-extrabold"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -136,8 +135,8 @@ const Stats = () => {
           >
             <AnimatedCounter value={stat.value} delay={0.5 + index * 0.1} />
           </motion.div>
-          <motion.div 
-            className="stat-label"
+          <motion.div
+            className="text-xs sm:text-sm font-medium uppercase tracking-wide text-ink/50"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
